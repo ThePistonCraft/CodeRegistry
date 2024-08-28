@@ -111,7 +111,7 @@ This will automatically scan the specified package and register all commands and
 
 If you encounter any bugs or issues while using the CodeRegistry plugin, please feel free to:
 
-1. **Open an Issue**: Report the bug by opening an issue on the [GitHub repository](https://github.com/yourusername/coderegistry/issues).
+1. **Open an Issue**: Report the bug by opening an issue on the [GitHub repository](https://github.com/ThePistonCraft/CodeRegistry/issues).
 2. **Contact Me on Discord**: You can also reach out to me directly on Discord. My username is `einCode_`.
 
 ## License
