@@ -107,6 +107,55 @@ This will automatically scan the specified package and register all commands and
 - **Java**: Ensure you are using Java 8 or later.
 - **Paper API**: This plugin is built against the Paper API.
 
+## Maven Repository
+
+To use the CodeRegistry plugin in your own Maven projects, you need to add the Maven repository and dependency to your `pom.xml`:
+
+### 1. Add Maven Repository
+
+Add the following repository section to your `pom.xml` to include the GitHub Maven repository:
+
+```xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/ThePistonCraft/CodeRegistry</url>
+    </repository>
+</repositories>
+```
+
+### 2. Add Dependency
+
+Add the following dependency to your `pom.xml` to include the CodeRegistry plugin:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>de.eincode</groupId>
+        <artifactId>coderegistry</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+</dependencies>
+```
+
+### 3. Authentication
+
+If the repository is private, you need to authenticate by adding your GitHub credentials to Maven's settings. Create or update the `settings.xml` file in your Maven configuration directory (`~/.m2/` or `C:\Users\<YourUsername>\.m2\`) with the following:
+
+```xml
+<settings>
+    <servers>
+        <server>
+            <id>github</id>
+            <username>your-github-username</username>
+            <password>your-github-token</password>
+        </server>
+    </servers>
+</settings>
+```
+
+Replace `your-github-username` with your GitHub username and `your-github-token` with your GitHub Personal Access Token.
+
 ## Bug Reports
 
 If you encounter any bugs or issues while using the CodeRegistry plugin, please feel free to:
