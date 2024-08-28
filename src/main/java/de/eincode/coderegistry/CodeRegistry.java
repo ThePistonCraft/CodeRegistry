@@ -11,5 +11,4 @@ public final class CodeRegistry extends JavaPlugin {
         registry.registerCommandsFromClasses();
         registry.registerListenersFromClasses();
     }
-
 }
