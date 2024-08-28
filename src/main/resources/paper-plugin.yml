@@ -1,0 +1,5 @@
+name: CodeRegistry
+version: '1.0-SNAPSHOT'
+main: de.eincode.coderegistry.CodeRegistry
+api-version: '1.21'
+authors: [ einCode_ ]
