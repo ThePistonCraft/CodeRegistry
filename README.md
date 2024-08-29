@@ -143,7 +143,7 @@ Add the following dependency to your `pom.xml` to include the CodeRegistry plugi
     <dependency>
         <groupId>de.eincode</groupId>
         <artifactId>coderegistry</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
