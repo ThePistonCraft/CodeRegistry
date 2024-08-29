@@ -7,8 +7,6 @@ public final class CodeRegistry extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        final Registry registry = new Registry(this, "de.eincode.coderegistry");
-        registry.registerCommandsFromClasses();
-        registry.registerListenersFromClasses();
+        new Registry(this, "de.eincode.coderegistry").initialize();
     }
 }

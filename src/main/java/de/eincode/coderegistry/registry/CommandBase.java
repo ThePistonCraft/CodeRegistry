@@ -34,6 +34,7 @@ public abstract class CommandBase implements CommandExecutor, TabCompleter {
                     player.sendMessage(this.noPermissionMessage);
                     return false;
                 }
+
                 this.execute(sender, args);
             }
             return true;

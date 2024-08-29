@@ -29,6 +29,42 @@ public class Registry {
     }
 
     @SneakyThrows
+    public void initialize() {
+        final Iterable<Class<?>> classes = getPluginClasses(basePackage);
+
+        for (Class<?> clazz : classes) {
+            if (CommandBase.class.isAssignableFrom(clazz) && clazz.isAnnotationPresent(RegisterCommand.class)) {
+                final RegisterCommand registerCommand = clazz.getAnnotation(RegisterCommand.class);
+                final String commandName = registerCommand.name();
+                final String[] aliases = registerCommand.aliases();
+                final String description = registerCommand.description();
+
+                final Constructor<?> constructor = clazz.getConstructor(Plugin.class);
+                final CommandBase command = (CommandBase) constructor.newInstance(plugin);
+
+                this.registerCommand(commandName, aliases, description, command);
+            }
+
+            if (Listener.class.isAssignableFrom(clazz) && clazz.isAnnotationPresent(RegisterListener.class)) {
+                Constructor<?> constructor;
+                Listener listener;
+
+                try {
+                    constructor = clazz.getConstructor(Plugin.class);
+                    listener = (Listener) constructor.newInstance(plugin);
+                } catch (NoSuchMethodException e) {
+                    constructor = clazz.getConstructor();
+                    listener = (Listener) constructor.newInstance();
+                }
+
+                this.registerListener(listener);
+            }
+        }
+    }
+
+
+    @Deprecated(forRemoval = true)
+    @SneakyThrows
     public void registerCommandsFromClasses() {
         final Iterable<Class<?>> classes = getPluginClasses(basePackage);
 
@@ -71,6 +107,7 @@ public class Registry {
         commandMap.register(name, command);
     }
 
+    @Deprecated(forRemoval = true)
     @SneakyThrows
     public void registerListenersFromClasses() {
         final Iterable<Class<?>> classes = getPluginClasses(basePackage);
