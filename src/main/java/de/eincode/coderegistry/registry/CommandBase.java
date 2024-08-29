@@ -16,25 +16,17 @@ import java.util.List;
 public abstract class CommandBase implements CommandExecutor, TabCompleter {
 
     protected final Plugin plugin;
-    protected final String noPermissionMessage;
 
-    public CommandBase(Plugin plugin, String noPermissionMessage) {
+    public CommandBase(Plugin plugin) {
         this.plugin = plugin;
-        this.noPermissionMessage = noPermissionMessage;
     }
 
     @SneakyThrows
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         final RegisterCommand registerCommand = this.getClass().getAnnotation(RegisterCommand.class);
-
-        if (sender instanceof final Player player) {
+        if (sender instanceof Player) {
             if (registerCommand != null) {
-                if (!registerCommand.permission().isEmpty() && !sender.hasPermission(registerCommand.permission())) {
-                    player.sendMessage(this.noPermissionMessage);
-                    return false;
-                }
-
                 this.execute(sender, args);
             }
             return true;

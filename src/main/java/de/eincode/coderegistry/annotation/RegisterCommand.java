@@ -10,7 +10,6 @@ import java.lang.annotation.Target;
 public @interface RegisterCommand {
 
     String name();
-    String permission() default "";
 
     String description() default "";
     String[] aliases() default {};

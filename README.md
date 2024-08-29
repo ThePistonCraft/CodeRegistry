@@ -32,21 +32,20 @@ The **CodeRegistry** plugin is a Paper plugin that provides a framework for auto
 
 ### 1. Define Commands
 
-To create a command, simply extend the `CommandBase` class and annotate your class with `@RegisterCommand`. The `CommandBase` constructor requires the plugin instance and a no-permission message.
+To create a command, simply extend the `CommandBase` class and annotate your class with `@RegisterCommand`. The `CommandBase` constructor requires the plugin instance message.
 
 Example:
 
 ```java
 @RegisterCommand(
     name = "TestCommand",
-    permission = "eincode.testcommand",
     description = "Test Description",
     aliases = {"tc"}
 )
 public class TestCommand extends CommandBase {
 
-    public TestCommand(Plugin plugin, String noPermissionMessage) {
-        super(plugin, "§cYou don't have permission to do that.");
+    public TestCommand(Plugin plugin) {
+        super(plugin);
     }
 
     @Override
@@ -143,7 +142,7 @@ Add the following dependency to your `pom.xml` to include the CodeRegistry plugi
     <dependency>
         <groupId>de.eincode</groupId>
         <artifactId>coderegistry</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>1.1.1-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
