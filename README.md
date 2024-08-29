@@ -76,20 +76,30 @@ public class TestListener implements Listener {
 
 ### 3. Register Commands and Listeners
 
-In your plugin's `onEnable` method, create a `Registry` instance and call the `registerCommandsFromClasses()` and `registerListenersFromClasses()` methods.
+In your plugin's `onEnable` method, create a `Registry` instance and call the `initialize()` method. This method will automatically scan the specified package and register all commands and listeners.
 
 Example:
 
 ```java
 @Override
 public void onEnable() {
-    Registry registry = new Registry(this, "de.eincode.coderegistry");
-    registry.registerCommandsFromClasses();
-    registry.registerListenersFromClasses();
+    new Registry(this, "de.eincode.coderegistry").initialize();
 }
 ```
 
-This will automatically scan the specified package and register all commands and listeners.
+If you're using the older methods `registerCommandsFromClasses()` and `registerListenersFromClasses()`, please note that they are now marked as deprecated and will be removed in a future version. It's recommended to switch to `initialize()`.
+
+```java
+@Deprecated(forRemoval = true)
+public void registerCommandsFromClasses() {
+    // Old command registration logic
+}
+
+@Deprecated(forRemoval = true)
+public void registerListenersFromClasses() {
+    // Old listener registration logic
+}
+```
 
 ## Compatibility
 
