@@ -170,7 +170,7 @@ Replace `your-github-username` with your GitHub username and `your-github-token`
 If you encounter any bugs or issues while using the CodeRegistry plugin, please feel free to:
 
 1. **Open an Issue**: Report the bug by opening an issue on the [GitHub repository](https://github.com/ThePistonCraft/CodeRegistry/issues).
-2. **Contact Me on Discord**: You can also reach out to me directly on Discord. My username is `einCode_`.
+2. **Contact Me on Discord**: You can also reach out to me directly on Discord. My username is `einCode_` or join my [Discord Server](https://discord.gg/kTwd5grCEw).
 
 ## License
 
